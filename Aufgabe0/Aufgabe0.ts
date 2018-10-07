@@ -1,4 +1,4 @@
-        var a: string= prompt ('Hallo, wie heiﬂt du?');
+        var a: string= prompt ('Hallo, wie heisst du?');
 
             console.log ("Hallo " + a);
 
