@@ -1,4 +1,4 @@
-var a = prompt('Hallo:');
+var a = prompt('Hallo, wie hei�t du?');
 console.log("Hallo " + a);
 function writeHTML() {
     var node = document.getElementById("main");
