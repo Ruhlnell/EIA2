@@ -1,3 +1,5 @@
+namespace Aufgabe0{
+
 var a: string = prompt('Hallo, wie heisst du?');
 
 console.log("Hallo " + a);
@@ -9,3 +11,4 @@ function writeHTML(): void {
 }
 
 document.addEventListener('DOMContentLoaded', writeHTML);
+    }
