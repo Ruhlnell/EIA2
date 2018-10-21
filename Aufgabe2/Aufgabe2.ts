@@ -170,7 +170,7 @@ function random(_n: number): number {
             s.textAlign = "center";
             s.borderRadius = 20 + "px";
 
-        if (_color == "black") { //Wenn Hintergrund Schwarz -> Schrift weiﬂ
+        if (_color == "black") { 
             s.color = "white";
 
         }
