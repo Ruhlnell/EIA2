@@ -1,5 +1,5 @@
 namespace UNO {
-
+    function game(){
     interface cards {
         name: string;
         red: number;
@@ -267,7 +267,7 @@ function random(_n: number): number {
 
         }
         
-        function stapel(_color: string) {
+        function stapel() {
             let div = document.createElement("div");
             document.body.appendChild(div);
             div.setAttribute("id", "Stapel");
@@ -282,13 +282,12 @@ function random(_n: number): number {
             s.left = 200 + "px";
             s.top = 20 + "px";
             s.borderRadius = 20 + "px";
-       
-        if (_color == "#black") {
-            s.color = "white";
-        }
+
 
     }
 
-  
-    document.addEventListener("DOMContentLoaded", main)
+        ablage();
+        stapel();
+}  
+    document.addEventListener("DOMContentLoaded", (game))
 }

@@ -1,6 +1,6 @@
 var UNO;
 (function (UNO) {
-    function main() {
+    function game() {
         let c0 = {
             name: "0",
             red: 1,
@@ -142,7 +142,7 @@ var UNO;
             s.bottom = 50 + "px";
             s.textAlign = "center";
             s.borderRadius = 20 + "px";
-            if (_color == "#000000") {
+            if (_color == "black") {
                 s.color = "white";
             }
         }
@@ -220,7 +220,7 @@ var UNO;
             s.border = " solid black";
             s.textAlign = "center";
             s.position = "absolute";
-            s.backgroundColor = "b";
+            s.backgroundColor = "black";
             s.width = 100 + "px";
             s.height = 150 + "px";
             s.left = 200 + "px";
@@ -230,6 +230,6 @@ var UNO;
         ablage();
         stapel();
     }
-    document.addEventListener("DOMContentLoaded", (main));
+    document.addEventListener("DOMContentLoaded", (game));
 })(UNO || (UNO = {}));
 //# sourceMappingURL=Aufgabe2.js.map
