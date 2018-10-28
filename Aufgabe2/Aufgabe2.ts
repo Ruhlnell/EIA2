@@ -1,3 +1,10 @@
+//Aufgabe: 2 (neu)
+//Name: Ruhl, Nelli
+//Matrikel: 259408
+//Datum: 28.10.2018
+    
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
 namespace UNO {
     interface cards {
         color: string;
