@@ -19,7 +19,6 @@ var UNO;
             }
         }
     }
-    console.log(other);
     let displayhand = [];
     function Anzahl() {
         var kartenanzahl = prompt("Mit wie vielen Karten willst du spielen?");

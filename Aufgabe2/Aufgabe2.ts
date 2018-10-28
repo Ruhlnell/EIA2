@@ -25,7 +25,6 @@ namespace UNO {
             }
         }
     }
-    console.log(other);
 
     let displayhand: cards[] = [];
 
