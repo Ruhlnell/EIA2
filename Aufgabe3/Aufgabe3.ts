@@ -1,4 +1,4 @@
-//Aufgabe: 3 (neu)
+//Aufgabe: 3 
 //Name: Ruhl, Nelli
 //Matrikel: 259408
 //Datum: 11.11.2018
