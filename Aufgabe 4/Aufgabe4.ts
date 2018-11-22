@@ -104,7 +104,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
 
 
     function generateCandles(): void {
-        for (let c: number = 0; c < balls.length; c++) {
+        for (let c: number = 0; c < candles.length; c++) {
             let input: HTMLInputElement = document.createElement("input");
             document.getElementById("candles").appendChild(input);
             input.type = "checkbox";
@@ -173,6 +173,8 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
         input.value = "0"; }
     
     
+
+
         function generateLight(): void {
         for (let e: number = 0; e < light.length; e++) {
             let input: HTMLInputElement = document.createElement("input");
@@ -240,16 +242,16 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
         input.value = "0"; }
 
 
-    function refreshCart(): _event.target {
-        let input: HTMLInputElement<HTMLInputElement>_event.target;
-        let id: string[]input.id.split("");
+  //  function refreshCart(): _event.target {
+    //    let input: HTMLInputElement<HTMLInputElement>_event.target;
+      //  let id: string[]input.id.split("");
 
-    }
-//    function refreshCart(_event: Event): void {
-//        let target: HTMLInputElement = <HTMLInputElement>_event.target;
-  //      let productgroup: string = target.getAttribute("group");
-    //    let productindex: string = target.getAttribute("index");
+  //  }
+    function refresh(_event: Event): void {
+        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        let productgroup: string = target.getAttribute("group");
+        let productindex: string = target.getAttribute("index");
         }
      
-    }
+}    
     
