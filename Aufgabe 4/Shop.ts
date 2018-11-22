@@ -12,16 +12,16 @@ namespace tanne {
     }
 
     //Arrays
-    export let trees: product[] = [{ name: "grüne Tanne", price: 80 },
-        { name: "grüne Fichte", price: 90 },
-        { name: "künstlicher grüner Baum", price: 50 },
-        { name: "künstlicher weißer Baum", price: 60 },
-        { name: "künstlicher silberner Baum", price: 90 },
-        { name: "künstlicher schwarzer Baum", price: 40 },
-        { name: "künstlicher blauer Baum", price: 60 },
+    export let trees: product[] = [{ name: "gruene Tanne", price: 80 },
+        { name: "gruene Fichte", price: 90 },
+        { name: "kuenstlicher gruener Baum", price: 50 },
+        { name: "kuenstlicher weißer Baum", price: 60 },
+        { name: "kuenstlicher silberner Baum", price: 90 },
+        { name: "kuenstlicher schwarzer Baum", price: 40 },
+        { name: "kuenstlicher blauer Baum", price: 60 },
     ];
 
-    export let balls: product[] = [{ name: "auswählen", price: 0 },
+    export let balls: product[] = [{ name: "auswaehlen", price: 0 },
         { name: "blaue Kugel mit Glitzer", price: 2 },
         { name: "blaue Kugel, matt", price: 2 },
         //rote Kugeln
@@ -35,7 +35,7 @@ namespace tanne {
         { name: "gelbe Kugel, matt", price: 2 },
     ];
 
-    export let candles: product[] = [{ name: "auswählen", price: 0 },
+    export let candles: product[] = [{ name: "auswaehlen", price: 0 },
         { name: "blaue Kerze", price: 2 },
         { name: "rote Kerze", price: 2 },
         { name: "silberne Kerze", price: 2 },
@@ -43,39 +43,35 @@ namespace tanne {
         { name: "Bienenwachskerze", price: 3 },
     ];
 
-    export let lametta: product[] = [{ name: "auswählen", price: 0 },
+    export let lametta: product[] = [{ name: "auswaehlen", price: 0 },
         { name: "blaues Lametta (1m)", price: 3 },
         { name: "rotes Lametta (1m)", price: 3 },
         { name: "silbernes Lametta (1m)", price: 3 },
         { name: "goldenes Lametta (1m)", price: 3 },
     ];
 
-    export let light: product[] = [{ name: "auswählen", price: 0 },
+    export let light: product[] = [{ name: "auswaehlen", price: 0 },
         { name: "Lichterkette (warmes Licht, 1m)", price: 4 },
         { name: "Lichterkette (kaltes Licht, 1m)", price: 4 },
     ];
 
-    export let holding: product[] = [{ name: "auswählen", price: 0 },
+    export let holding: product[] = [{ name: "auswaehlen", price: 0 },
         { name: "Metallhalterung", price: 10 },
         { name: "Holzhalterung", price: 7 },
         { name: "braune Plasikhalterung", price: 5 },
     ];
 
-    export let blenket: product[] = [{ name: "auswählen", price: 0 },
-        { name: "Decke, hellblau mit Schneeflocken", price: 10 },
-        { name: "Decke, baige mit Schneeflockenmuster", price: 10 },
-        { name: "Decke, rot mit Rehen", price: 7 },
-        { name: "Decke, grün mit Rehen", price: 2 },
-        { name: "Decke in Schneeoptik", price: 3 },
-    ];
+//    export let blenket: product[] = [{ name: "auswaehlen", price: 0 },
+  //      { name: "Decke, hellblau mit Schneeflocken", price: 10 },
+    //    { name: "Decke, baige mit Schneeflockenmuster", price: 10 },
+      //  { name: "Decke, rot mit Rehen", price: 7 },
+        //{ name: "Decke, grün mit Rehen", price: 2 },
+//        { name: "Decke in Schneeoptik", price: 3 },
+  //  ];
 
-    export let extras: product[] = [{ name: "auswählen", price: 0 },
-        { name: "großer Nussknacker", price: 10 },
-        { name: "tanzender Weihnachtsmann", price: 10 },
-    ];
+    //export let extras: product[] = [{ name: "auswaehlen", price: 0 },
+      //  { name: "großer Nussknacker", price: 10 },
+        //{ name: "tanzender Weihnachtsmann", price: 10 },
+    //];
 
-    export let sendingoptions: product[] = [{ name: "auswählen", price: 0 },
-        { name: "normal Versand", price: 0 },
-        { name: "express Versand", price: 3 },
-    ];
 }

@@ -1,102 +1,255 @@
 //Aufgabe: 4
 //Name: Ruhl, Nelli
 //Matrikel: 259408
-//Datum: 17.11.2018
+//Datum: 21.11.2018
 
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 namespace tanne {
 
-    interface product {
+      window.addEventListener("DOMContentLoaded", init);
+
+interface product {
         name: string;
         price: number;
     }
 
-    //Arrays
-    let trees: product[] = [];
+let trees: product[]=[];
+let balls: product[]=[];
+let candles: product[]=[];
+let lametta: product[]=[];
+let light: product[]=[];
+let holding: product[]=[];
 
-    let balls: product[] = [];
 
-    let candles: product[] = [];
+function init(): void {
+generateTrees();
+    generateBalls();
+    generateCandles();
+    generateLametta();
+    generateLight();
+    generateHolding();
+//    generateBlanket();
+ //   generateExtras();
 
-    let lametta: product[] = [];
 
-    let light: product[] = [];
+let fieldsets: NodeListOf<HTMLFieldSetElement> = 
+                    document.getElementsByTagName("fieldset");
 
-    let holding: product[] = [];
-
-    let blenket: product[] = [];
-
-    let extras: product[] = [];
-
-    let sendingoptions: product[] = [];
-
-    //    function init(): void {
-    //    fillFieldset();
-    //  document.getElementsByTagName("fieldset")[0].addEventListener("change", handleChange);
-    //document.getElementById("check").addEventListener("click", check);
-    //    }  
-
-    function generateTrees() {
-        document.addEventListener("change", refreshCart);
-        let radiobutton: HTMLElement = document.getElementById("trees");
-        for (let arrayNumber: number = 0; arrayNumber < trees.length; arrayNumber++) {
-
-            generateTrees.push();
+        for (let i: number = 0; i < fieldsets.length; i++) {
+            let fieldset: HTMLFieldSetElement = fieldsets[i];
+            fieldset.addEventListener("change", refresh);
         }
     }
 
-    function generateBalls() {
-        document.addEventListener("change", refreshCart);
-        let stepper: HTMLElement = document.getElementById("balls");
-        let arrayNumber: number = 0; arrayNumber < balls.length; arrayNumber++;
-        generateBalls.push();
+    
+      let cart: product[] = []; 
+    
+    
+    function generateTrees(): void {
+        for (let a: number = 0; a < trees.length; a++) {
+            let input: HTMLInputElement = document.createElement("input");
+            document.getElementById("trees").appendChild(input);
+            input.type = "radio";
+            input.name = "treegroup";
+            input.value = trees[a].name;
+            input.id = trees[a].name;
+            input.setAttribute("group", "trees");
+            input.setAttribute("index", "" + a);
+            
+            let label: HTMLLabelElement = document.createElement("label");
+            document.getElementById("trees").appendChild(label);
+            label.setAttribute("for", trees[a].name);
+            label.innerHTML = trees[a].name + " " + trees[a].price + "€";
+            let id: string = input.toString();
+            input.setAttribute("id", "trees" + id);
+            document.getElementById("trees").appendChild(document.createElement("br"));
+            
+        }
+        
+       }
+        
+    function generateBalls(): void {
+        for (let b: number = 0; b < balls.length; b++) {
+            let input: HTMLInputElement = document.createElement("input");
+            document.getElementById("balls").appendChild(input);
+            input.type = "checkbox";
+            input.name = "balls";
+            input.value = balls[b].name;
+            input.id = balls[b].name;
+            input.setAttribute("group", "balls");
+            input.setAttribute("index", "" + b);
+            
+            let label: HTMLLabelElement = document.createElement("label");
+            document.getElementById("balls").appendChild(label);
+            label.setAttribute("for", balls[b].name);
+            label.innerHTML = balls[b].name + " " + balls[b].price + "Euro";
+            stepperBalls();
+            let id: string = input.toString();
+            input.setAttribute("id", "ball" + id);
+            document.getElementById("balls").appendChild(document.createElement("br"));
+
+        }
     }
 
-    function generateCandles() {
-        document.addEventListener("change", refreshCart);
-        let stepper: HTMLElement = document.getElementById("candles");
-        let arrayNumber: number = 0; arrayNumber < candles.length; arrayNumber++;
-        generateCandles.push;
+    function stepperBalls(): void {
+        let input: HTMLInputElement = document.createElement("input");
+        document.getElementById("balls").appendChild(input);
+        input.type = "number";
+        input.name = " Stepper";
+        input.step = "1.0";
+        input.min = "0";
+        input.max = "100";
+        input.value = "0"; }
+
+
+
+    function generateCandles(): void {
+        for (let c: number = 0; c < balls.length; c++) {
+            let input: HTMLInputElement = document.createElement("input");
+            document.getElementById("candles").appendChild(input);
+            input.type = "checkbox";
+            input.name = "candles";
+            input.value = balls[c].name;
+            input.id = balls[c].name;
+            input.setAttribute("group", "candles");
+            input.setAttribute("index", "" + c);
+            
+            let label: HTMLLabelElement = document.createElement("label");
+            document.getElementById("candles").appendChild(label);
+            label.setAttribute("for", candles[c].name);
+            label.innerHTML = candles[c].name + " " + candles[c].price + "Euro";
+            stepperCandles();
+            let id: string = input.toString();
+            input.setAttribute("id", "candles" + id);
+            document.getElementById("candles").appendChild(document.createElement("br"));
+
+        }
     }
 
-    function generateLametta() {
-        document.addEventListener("change", refreshCart);
-        let stepper: HTMLElement = document.getElementById("lametta");
-        let arrayNumber: number = 0; arrayNumber < lametta.length; arrayNumber++;
-        generateLametta.push;
-    }
+    function stepperCandles(): void {
+        let input: HTMLInputElement = document.createElement("input");
+        document.getElementById("candles").appendChild(input);
+        input.type = "number";
+        input.name = " Stepper";
+        input.step = "1.0";
+        input.min = "0";
+        input.max = "100";
+        input.value = "0";
+    }    
+    
 
-    function generateLight() {
-        document.addEventListener("change", refreshCart);
-        let stepper: HTMLElement = document.getElementById("light");
-        let arrayNumber: number = 0; arrayNumber < light.length; arrayNumber++;
-        generateLight.push;
-    }
 
-    function generateHolding() {
-        document.addEventListener("change", refreshCart);
-        let stepper: HTMLElement = document.getElementById("holding");
-        let arrayNumber: number = 0; arrayNumber < holding.length; arrayNumber++;
-        generateHolding.push;
-    }
 
-    function generateBlanket() {
-        document.addEventListener("change", refreshCart);
-        let selectbox: HTMLElement = document.getElementById("blanket");
-        let arrayNumber: number = 0; arrayNumber < blenket.length; arrayNumber++;
-        generateBlanket.push;
-    }
+        function generateLametta(): void {
+        for (let d: number = 0; d < lametta.length; d++) {
+            let input: HTMLInputElement = document.createElement("input");
+            document.getElementById("lametta").appendChild(input);
+            input.type = "checkbox";
+            input.name = "lametta";
+            input.value = lametta[d].name;
+            input.id = lametta[d].name;
+            input.setAttribute("group", "lametta");
+            input.setAttribute("index", "" + d);
+            
+            let label: HTMLLabelElement = document.createElement("label");
+            document.getElementById("lametta").appendChild(label);
+            label.setAttribute("for", lametta[d].name);
+            label.innerHTML = lametta[d].name + " " + lametta[d].price + "Euro";
+            stepperLametta();
+            let id: string = input.toString();
+            input.setAttribute("id", "lametta" + id);
+            document.getElementById("lametta").appendChild(document.createElement("br"));
 
-    function generateExtras() {
-        document.addEventListener("change", refreshCart);
-        let selectbox: HTMLElement = document.getElementById("extras");
-        let arrayNumber: number = 0; arrayNumber < extras.length; arrayNumber++;
-        generateExtras.push(arrayNumber);
+        }
     }
+    function stepperLametta(): void {
+        let input: HTMLInputElement = document.createElement("input");
+        document.getElementById("lametta").appendChild(input);
+        input.type = "number";
+        input.name = " Stepper";
+        input.step = "1.0";
+        input.min = "0";
+        input.max = "100";
+        input.value = "0"; }
+    
+    
+        function generateLight(): void {
+        for (let e: number = 0; e < light.length; e++) {
+            let input: HTMLInputElement = document.createElement("input");
+            document.getElementById("light").appendChild(input);
+            input.type = "checkbox";
+            input.name = "light";
+            input.value = light[e].name;
+            input.id = light[e].name;
+            input.setAttribute("group", "light");
+            input.setAttribute("index", "" + e);
+            
+            let label: HTMLLabelElement = document.createElement("label");
+            document.getElementById("light").appendChild(label);
+            label.setAttribute("for", light[e].name);
+            label.innerHTML = light[e].name + " " + light[e].price + "€";
+            stepperLight();
+            let id: string = input.toString();
+            input.setAttribute("id", "light" + id);
+            document.getElementById("light").appendChild(document.createElement("br"));
+
+        }
+    }
+    function stepperLight(): void {
+        let input: HTMLInputElement = document.createElement("input");
+        document.getElementById("light").appendChild(input);
+        input.type = "number";
+        input.name = " Stepper";
+        input.step = "1.0";
+        input.min = "0";
+        input.max = "100";
+        input.value = "0"; }
+
+
+
+        function generateHolding(): void {
+        for (let f: number = 0; f < holding.length; f++) {
+            let input: HTMLInputElement = document.createElement("input");
+            document.getElementById("holding").appendChild(input);
+            input.type = "checkbox";
+            input.name = "holding";
+            input.value = holding[f].name;
+            input.id = holding[f].name;
+            input.setAttribute("group", "holding");
+            input.setAttribute("index", "" + f);
+            
+            let label: HTMLLabelElement = document.createElement("label");
+            document.getElementById("holding").appendChild(label);
+            label.setAttribute("for", holding[f].name);
+            label.innerHTML = holding[f].name + " " + holding[f].price + "Euro";
+            stepperHolding();
+            let id: string = input.toString();
+            input.setAttribute("id", "holding" + id);
+            document.getElementById("holding").appendChild(document.createElement("br"));
+
+        }
+    }
+    function stepperHolding(): void {
+        let input: HTMLInputElement = document.createElement("input");
+        document.getElementById("holding").appendChild(input);
+        input.type = "number";
+        input.name = " Stepper";
+        input.step = "1.0";
+        input.min = "0";
+        input.max = "100";
+        input.value = "0"; }
+
 
     function refreshCart(): _event.target {
-       // let input: HTMLInputElement<HTMLInputElement>_event.target
-       // let id: string[]input.id.split("")
+        let input: HTMLInputElement<HTMLInputElement>_event.target;
+        let id: string[]input.id.split("");
 
     }
-}
+//    function refreshCart(_event: Event): void {
+//        let target: HTMLInputElement = <HTMLInputElement>_event.target;
+  //      let productgroup: string = target.getAttribute("group");
+    //    let productindex: string = target.getAttribute("index");
+        }
+     
+    }
+    
