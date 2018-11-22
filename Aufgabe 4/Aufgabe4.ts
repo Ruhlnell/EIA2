@@ -8,17 +8,13 @@ namespace tanne {
 
       window.addEventListener("DOMContentLoaded", init);
 
-interface product {
-        name: string;
-        price: number;
-    }
 
-let trees: product[]=[];
-let balls: product[]=[];
-let candles: product[]=[];
-let lametta: product[]=[];
-let light: product[]=[];
-let holding: product[]=[];
+//let trees: product[]=[];
+//let balls: product[]=[];
+//let candles: product[]=[];
+//let lametta: product[]=[];
+//let light: product[]=[];
+//let holding: product[]=[];
 
 
 function init(): void {
@@ -59,7 +55,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
             let label: HTMLLabelElement = document.createElement("label");
             document.getElementById("trees").appendChild(label);
             label.setAttribute("for", trees[a].name);
-            label.innerHTML = trees[a].name + " " + trees[a].price + "€";
+            label.innerHTML = trees[a].name + " " + trees[a].price + " Euro";
             let id: string = input.toString();
             input.setAttribute("id", "trees" + id);
             document.getElementById("trees").appendChild(document.createElement("br"));
@@ -82,7 +78,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
             let label: HTMLLabelElement = document.createElement("label");
             document.getElementById("balls").appendChild(label);
             label.setAttribute("for", balls[b].name);
-            label.innerHTML = balls[b].name + " " + balls[b].price + "Euro";
+            label.innerHTML = balls[b].name + " " + balls[b].price + " Euro";
             stepperBalls();
             let id: string = input.toString();
             input.setAttribute("id", "ball" + id);
@@ -109,15 +105,15 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
             document.getElementById("candles").appendChild(input);
             input.type = "checkbox";
             input.name = "candles";
-            input.value = balls[c].name;
-            input.id = balls[c].name;
+            input.value = candles[c].name;
+            input.id = candles[c].name;
             input.setAttribute("group", "candles");
             input.setAttribute("index", "" + c);
             
             let label: HTMLLabelElement = document.createElement("label");
             document.getElementById("candles").appendChild(label);
             label.setAttribute("for", candles[c].name);
-            label.innerHTML = candles[c].name + " " + candles[c].price + "Euro";
+            label.innerHTML = candles[c].name + " " + candles[c].price + " Euro";
             stepperCandles();
             let id: string = input.toString();
             input.setAttribute("id", "candles" + id);
@@ -139,8 +135,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
     
 
 
-
-        function generateLametta(): void {
+    function generateLametta(): void {
         for (let d: number = 0; d < lametta.length; d++) {
             let input: HTMLInputElement = document.createElement("input");
             document.getElementById("lametta").appendChild(input);
@@ -154,7 +149,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
             let label: HTMLLabelElement = document.createElement("label");
             document.getElementById("lametta").appendChild(label);
             label.setAttribute("for", lametta[d].name);
-            label.innerHTML = lametta[d].name + " " + lametta[d].price + "Euro";
+            label.innerHTML = candles[d].name + " " + candles[d].price + " Euro";
             stepperLametta();
             let id: string = input.toString();
             input.setAttribute("id", "lametta" + id);
@@ -162,6 +157,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
 
         }
     }
+
     function stepperLametta(): void {
         let input: HTMLInputElement = document.createElement("input");
         document.getElementById("lametta").appendChild(input);
@@ -170,11 +166,10 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
         input.step = "1.0";
         input.min = "0";
         input.max = "100";
-        input.value = "0"; }
+        input.value = "0";
+    }
     
     
-
-
         function generateLight(): void {
         for (let e: number = 0; e < light.length; e++) {
             let input: HTMLInputElement = document.createElement("input");
@@ -189,7 +184,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
             let label: HTMLLabelElement = document.createElement("label");
             document.getElementById("light").appendChild(label);
             label.setAttribute("for", light[e].name);
-            label.innerHTML = light[e].name + " " + light[e].price + "€";
+            label.innerHTML = light[e].name + " " + light[e].price + " Euro";
             stepperLight();
             let id: string = input.toString();
             input.setAttribute("id", "light" + id);
@@ -197,6 +192,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
 
         }
     }
+
     function stepperLight(): void {
         let input: HTMLInputElement = document.createElement("input");
         document.getElementById("light").appendChild(input);
@@ -223,7 +219,7 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
             let label: HTMLLabelElement = document.createElement("label");
             document.getElementById("holding").appendChild(label);
             label.setAttribute("for", holding[f].name);
-            label.innerHTML = holding[f].name + " " + holding[f].price + "Euro";
+            label.innerHTML = holding[f].name + " " + holding[f].price + " Euro";
             stepperHolding();
             let id: string = input.toString();
             input.setAttribute("id", "holding" + id);
@@ -242,16 +238,19 @@ let fieldsets: NodeListOf<HTMLFieldSetElement> =
         input.value = "0"; }
 
 
-  //  function refreshCart(): _event.target {
-    //    let input: HTMLInputElement<HTMLInputElement>_event.target;
-      //  let id: string[]input.id.split("");
+function refresh(_event: Event): void {
 
-  //  }
-    function refresh(_event: Event): void {
-        let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        let productgroup: string = target.getAttribute("group");
-        let productindex: string = target.getAttribute("index");
-        }
+        if (trees.price == 0) (name == "" || adress == "")
+         document.getElementById("buttonCheck").innerHTML = ""; 
+        else 
+            document.getElementById("buttonCheck").innerHTML = "";
+        
+//    function refresh(_event: Event): void {
+  //      let target: HTMLInputElement = <HTMLInputElement>_event.target;
+    //    let productgroup: string = target.getAttribute("group");
+      //  let productindex: string = target.getAttribute("index");
+        //}
      
-}    
     
+}
+ } 

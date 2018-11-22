@@ -6,7 +6,7 @@
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 namespace tanne {
 
-    interface product {
+export    interface product {
         name: string;
         price: number;
     }
