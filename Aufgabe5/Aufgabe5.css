@@ -1,0 +1,19 @@
+body{
+	background-color: lightblue;
+}
+
+fieldset{
+	background-color: rgb(240, 240, 200);
+	width: 500px;
+	margin-left: 60px;
+}
+
+#uebersicht{
+	position: absolute;
+	left: 800px;
+	top: 20px;
+	background-color: rgb(240, 240, 200);
+	padding-right: 250px;
+	padding-bottom: 400px;
+	border: solid, gray;
+}

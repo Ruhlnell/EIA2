@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Tannenkauf</title>
+<link rel="stylesheet" href="Aufgabe4.css" type="text/css"
+	media="screen" />
+<script src="Aufgabe4.js" type="text/javascript" charset="utf-8"></script>
+<script src="Shop.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+	<!-- -->
+	<fieldset id="text">
+		<legend> Kunde </legend>
+		Vor- und Zuname <input type="text" name="Text" placeholder="" required />
+		<hr />
+		Adresse <input type="password" name="Password" placeholder="" />
+		<hr />
+		PLZ <input type="text" name="Pattern" pattern="[0-9]{3}"
+			placeholder="" />
+		<hr />
+		Mail <input type="email" name="Mail" placeholder="" />
+		<hr />
+
+	</fieldset>
+
+	<fieldset id="lieferoptionen">
+		<legend> Lieferoptionen </legend>
+		<input type="radio" name="Radiogroup" value="radio1" id="radio1" /> <label
+			for="radio1">Normal Versand</label> <input type="radio"
+			name="Radiogroup" value="radio2" id="radio2" /> <label for="radio2">Express
+			Versand</label>
+
+	</fieldset>
+
+	<fieldset id="trees">
+		<legend>Baum</legend>
+	</fieldset>
+
+	<fieldset id="balls">
+		<legend>Kugeln</legend>
+	</fieldset>
+
+	<fieldset id="candles">
+		<legend>Kerzen</legend>
+	</fieldset>
+
+	<fieldset id="lametta">
+		<legend>Lametta</legend>
+	</fieldset>
+
+	<fieldset id="light">
+		<legend>Lichterketten</legend>
+	</fieldset>
+
+	<fieldset id="holding">
+		<legend>Halterung</legend>
+	</fieldset>
+	<!-- - ->
+		<fieldset id="blanket">
+			<legend>Decken</legend>
+		</fieldset>
+
+		<fieldset id="extras">
+			<legend>Extras</legend>
+		</fieldset>
+<!-- -->
+
+	<div id="uebersicht">
+		<h3>Übersicht</h3>
+		<button name="Button" type="submit" id="proofOrder">Bestellung
+			prüfen</button>
+	</div>
+
+
+
+</body>
+</html>

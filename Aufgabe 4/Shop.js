@@ -12,7 +12,7 @@ var tanne;
         { name: "kuenstlicher wei�er Baum", price: 60 },
         { name: "kuenstlicher silberner Baum", price: 90 },
         { name: "kuenstlicher schwarzer Baum", price: 40 },
-        { name: "kuenstlicher blauer Baum", price: 60 },
+        { name: "kuenstlicher blauer Baum", price: 60 }
     ];
     tanne.balls = [{ name: "auswaehlen", price: 0 },
         { name: "blaue Kugel mit Glitzer", price: 2 },
@@ -25,29 +25,29 @@ var tanne;
         { name: "silberne Kugel, matt", price: 2 },
         //gelbe Kugeln
         { name: "gelbe Kugel mit Glitzer", price: 2 },
-        { name: "gelbe Kugel, matt", price: 2 },
+        { name: "gelbe Kugel, matt", price: 2 }
     ];
     tanne.candles = [{ name: "auswaehlen", price: 0 },
         { name: "blaue Kerze", price: 2 },
         { name: "rote Kerze", price: 2 },
         { name: "silberne Kerze", price: 2 },
         { name: "goldene Kerze", price: 2 },
-        { name: "Bienenwachskerze", price: 3 },
+        { name: "Bienenwachskerze", price: 3 }
     ];
     tanne.lametta = [{ name: "auswaehlen", price: 0 },
         { name: "blaues Lametta (1m)", price: 3 },
         { name: "rotes Lametta (1m)", price: 3 },
         { name: "silbernes Lametta (1m)", price: 3 },
-        { name: "goldenes Lametta (1m)", price: 3 },
+        { name: "goldenes Lametta (1m)", price: 3 }
     ];
     tanne.light = [{ name: "auswaehlen", price: 0 },
         { name: "Lichterkette (warmes Licht, 1m)", price: 4 },
-        { name: "Lichterkette (kaltes Licht, 1m)", price: 4 },
+        { name: "Lichterkette (kaltes Licht, 1m)", price: 4 }
     ];
     tanne.holding = [{ name: "auswaehlen", price: 0 },
         { name: "Metallhalterung", price: 10 },
         { name: "Holzhalterung", price: 7 },
-        { name: "braune Plasikhalterung", price: 5 },
+        { name: "braune Plasikhalterung", price: 5 }
     ];
 })(tanne || (tanne = {}));
 //# sourceMappingURL=Shop.js.map
