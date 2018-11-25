@@ -1,7 +1,7 @@
-//Aufgabe: 4
+//Aufgabe: 5
 //Name: Ruhl, Nelli
 //Matrikel: 259408
-//Datum: 17.11.2018
+//Datum: 25.11.2018
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var tanne2;
 (function (tanne2) {
