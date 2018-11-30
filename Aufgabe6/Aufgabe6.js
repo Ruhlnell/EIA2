@@ -1,5 +1,5 @@
 /*
-Aufgabe: Aufgabe 5
+Aufgabe: Aufgabe 6
 Name: Nelli Ruhl
 Matrikel: 259314
 Datum: 25.11.2018
@@ -97,9 +97,6 @@ var tanne3;
         document.getElementById("button").addEventListener("click", checkCheckout);
         let fieldset = document.getElementById("fieldset2");
         fieldset.addEventListener("change", handleChange);
-        //let h3: HTMLElement = document.createElement("h3");
-        //h3.innerText = "Adresse";
-        //document.getElementById("fieldset2").appendChild(h3);
         let input = document.createElement("input");
         input.setAttribute("id", "ad");
         input.setAttribute("placeholder", "enter adress here");
