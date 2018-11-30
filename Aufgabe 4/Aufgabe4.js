@@ -24,10 +24,10 @@ var tanne;
         let fieldsets = document.getElementsByTagName("fieldset");
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
-            fieldset.addEventListener("change", htmlel);
+            fieldset.addEventListener("change", refresh);
         }
     }
-    // let cart: Product[] = [];
+    let card = [];
     function generateTrees() {
         for (let a = 0; a < tanne.trees.length; a++) {
             let input = document.createElement("input");
@@ -167,22 +167,70 @@ var tanne;
             document.getElementById("holding").appendChild(document.createElement("br"));
         }
     }
-    /*function refresh(_event: Event): void {
-        console.log(_event);
-        if (trees[0].price == 0 || balls[0].price == 0 || candles[0].price == 0 || lametta[0].price == 0 || light[0].price == 0 || holding[0].price == 0) {
-            document.getElementById("uebersicht").innerHTML = "";
-        //Product[0].name && Product[0].price
+    /*   function refresh(): void {
+           let uebersicht = document.getElementById('uebersicht').innerHTML;
+           refresh.push(uebersicht);
+           uebersichtAusgeben();
+           uebersicht.splice(index[a]);
+           uebersichtAusgeben();
+       }
+   
+       function warenkorbAusgeben() {
+           var ausgabe = '';
+               for (var i = 0; i < warenkorb.length; ++i) {
+                   warenkorb.sort();
+                   ausgabe += '<li id="nr' + i + '">';
+                   ausgabe += warenkorb[i];
+                   ausgabe += '<input type="button" value="X" id="loeschen" onclick="loescheNr(' + i + ');" />';
+                   ausgabe += '</li>';
+           }
+           document.getElementById('liste').innerHTML = ausgabe;
+       }
+           
+       
+       function delete(id):void {
+       
+       }
+           
+           
+           /*function refresh(_event: Event): void {
+               console.log(_event);
+               if (trees[0].price == 0 || balls[0].price == 0 || candles[0].price == 0 || lametta[0].price == 0 || light[0].price == 0 || holding[0].price == 0) {
+                   document.getElementById("uebersicht").innerHTML = "";
+               //Product[0].name && Product[0].price
+               }
+               
+               else {
+                   document.getElementById("uebersicht").innerHTML = "";
+               }
+           }
+       
+           function refresh(_event: Event): void {
+               let element: HTMLElement = <HTMLElement>_event.target;
+               let elementString: string = (element.id);
+               console.log(elementString);
+               target.getAttribute("name");
+               target.getAttribute("price");
+              // let element: HTMLElement = <HTMLElement>document.getElementById();
+           }*/
+    function refresh(_event) {
+        document.getElementById("fieldset").innerHTML = "";
+        for (let d = 0; d < card.length; d++) {
+            let div = document.createElement("div");
+            document.getElementById("fieldset").appendChild(div);
+            div.innerHTML = card[d].name;
+            //    div.innerHTML = cart[d].price;
+            let id = d.toString();
+            div.setAttribute("index", "" + d);
+            div.addEventListener("change", refreshCard);
         }
-        
-        else {
+        function refreshCard() {
             document.getElementById("uebersicht").innerHTML = "";
+            let clickedCard = _event.target;
+            let index = parseInt(clickedCard.id);
+            card.push(card[index]);
+            card.splice(index, 1);
         }
-    }*/
-    function htmlel(_event) {
-        let element = _event.target;
-        let elementString = (element.id);
-        console.log(elementString);
-        // let element: HTMLElement = <HTMLElement>document.getElementById(); 
     }
 })(tanne || (tanne = {}));
 //# sourceMappingURL=Aufgabe4.js.map

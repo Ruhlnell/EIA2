@@ -6,7 +6,7 @@
 var UNO;
 (function (UNO) {
     document.addEventListener("DOMContentLoaded", Anzahl);
-    document.addEventListener("keypress", pressKeyboard);
+    document.addEventListener("keydown", pressKeyboard);
     //Arrays
     let colors = ["red", "blue", "green", "yellow"];
     let values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "x", "<->"];
