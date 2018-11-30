@@ -108,11 +108,15 @@ namespace tanne3 {
         let fieldset: HTMLElement = document.getElementById("fieldset2");
 
         fieldset.addEventListener("change", handleChange);
-
+        //let h3: HTMLElement = document.createElement("h3");
+        //h3.innerText = "Adresse";
+        //document.getElementById("fieldset2").appendChild(h3);
         let input: HTMLElement = document.createElement("input");
         input.setAttribute("id", "ad");
+        input.setAttribute("placeholder", "enter adress here");
         document.getElementById("fieldset2").appendChild(input);
     }
+    
 
     function handleChange(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;

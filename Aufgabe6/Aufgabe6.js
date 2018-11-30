@@ -97,8 +97,12 @@ var tanne3;
         document.getElementById("button").addEventListener("click", checkCheckout);
         let fieldset = document.getElementById("fieldset2");
         fieldset.addEventListener("change", handleChange);
+        //let h3: HTMLElement = document.createElement("h3");
+        //h3.innerText = "Adresse";
+        //document.getElementById("fieldset2").appendChild(h3);
         let input = document.createElement("input");
         input.setAttribute("id", "ad");
+        input.setAttribute("placeholder", "enter adress here");
         document.getElementById("fieldset2").appendChild(input);
     }
     function handleChange(_event) {
