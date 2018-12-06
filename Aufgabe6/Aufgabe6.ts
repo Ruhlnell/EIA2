@@ -99,6 +99,23 @@ namespace tanne3 {
         steper.setAttribute("title", _products.name);
         steper.setAttribute("price", _products.price.toFixed());
         document.getElementById(key).appendChild(steper);
+                        if (article.checked == true) {
+                    article.setAttribute("value", "1");
+                    if (target.name == "Kugeln") {
+                        checkballs = 10;
+                    }
+                    if (target.name == "Lametta") {
+                        checklametta = 10;
+                    }
+                    if (target.name == "Kerzen") {
+                        checkcandle = 10;
+                    }
+
+                }
+                else if (article.checked == false) {
+                    article.setAttribute("value", "0");
+                }
+            }
 
     }
 
@@ -114,7 +131,7 @@ namespace tanne3 {
         input.setAttribute("placeholder", "enter adress here");
         document.getElementById("fieldset2").appendChild(input);
     }
-    
+
 
     function handleChange(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
