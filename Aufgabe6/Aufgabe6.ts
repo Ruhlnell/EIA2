@@ -8,8 +8,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 
 
-
-
 namespace tanne3 {
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("DOMContentLoaded", fillFieldset2);
@@ -90,7 +88,7 @@ namespace tanne3 {
         document.getElementById(key).appendChild(option);
         let steper: HTMLElement = document.createElement("input");
         steper.setAttribute("type", "number");
-        steper.setAttribute("name", " Stepper");
+        steper.setAttribute("name",  _products.name);
         steper.setAttribute("step", "1");
         steper.setAttribute("min", "0");
         steper.setAttribute("max", "50");
@@ -99,24 +97,6 @@ namespace tanne3 {
         steper.setAttribute("title", _products.name);
         steper.setAttribute("price", _products.price.toFixed());
         document.getElementById(key).appendChild(steper);
-                        if (article.checked == true) {
-                    article.setAttribute("value", "1");
-                    if (target.name == "Kugeln") {
-                        checkballs = 10;
-                    }
-                    if (target.name == "Lametta") {
-                        checklametta = 10;
-                    }
-                    if (target.name == "Kerzen") {
-                        checkcandle = 10;
-                    }
-
-                }
-                else if (article.checked == false) {
-                    article.setAttribute("value", "0");
-                }
-            }
-
     }
 
     //Adresse

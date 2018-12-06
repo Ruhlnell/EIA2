@@ -1,24 +1,30 @@
 "use strict";
-const Http = require("http");
+const Http = require("http"); //Import eines Modul als HTTP Objekt
+const Url = require("url");
 var L06_SendData;
 (function (L06_SendData) {
-    console.log("Starting server"); //Konsolenausgabe Starting Server   
-    let port = process.env.PORT; // Variable Port die den Port (Bsp 8100) festlegt      
+    console.log("bla");
+    console.log("Starting server"); //Consolelog wird ausgegeben mit nachricht "Starting server"
+    let port = process.env.PORT; //Stellt den PORT als number ein zum Heroku server  
     if (port == undefined)
-        port = 8100; // Wenn der Port nicht definiert wird wird er standardgem�� auf 8100 gesetzt
-    let server = Http.createServer(); // Variable server wird als Http.Server festgelegt
-    server.addListener("request", handleRequest); // Es wird ein Listener hinzugef�gt der bei dem befehl "request" die Funktion "handleRequest" ausf�hrt
-    server.addListener("listening", handleListen); //Es wird ein Listener hinzugef�gt der bei dem befehl "listening" die Funktion "handleListen" ausf�hrt
-    server.listen(port);
+        port = 8100; //soll er die nummer 8100 haben (verbindet Heroku mit EIA2)
+    let item = [];
+    let server = Http.createServer(); //variable server wird als typ Http.Server und wird als Http.creatserver funktion gleichgesetzt
+    server.addListener("request", handleRequest); //Fügt einen Listener hinzu der dem händler bescheid gibt wenn handleRequest getriggert wurde
+    server.addListener("listening", handleListen); //solange der Käufer auf die funktion zugreift, sieht der Händler das.
+    server.listen(port); //schaut zu was für ein Port verwendet wird. (8100)
     function handleListen() {
-        console.log("Listening"); //Konsolenausgabe "Listening"
+        console.log("Listening"); //Consolelog "Listening" wird ausgegeben
     }
     function handleRequest(_request, _response) {
-        console.log(_request.url); // Konsolenausgabe "I hear voices"
-        _response.setHeader("content-type", "text/html; charset=utf-8"); // Die Server Response setzt charset=utf-8 im HTML Dokument  
-        _response.setHeader("Access-Control-Allow-Origin", "*"); // Die Server Response gibt zugriff bzw erlaubt die Origin (Settings)
-        _response.write(_request.url); // Die Server Response sucht die URL 
-        _response.end(); // Die Server Response wird beendet
+        //console.log("I hear voices")      // gibt Consolelog "I hear voices!" aus
+        console.log(_request.url);
+        _response.setHeader("content-type", "text/html; charset=utf-8"); //setzt in den HTML header "content-type" und text/html; charset=utf-8
+        _response.setHeader("Access-Control-Allow-Origin", "*"); //Access-Control-Allow-Origin wird auch in den Header gesetzt, damit die antwort des Codes mit dem Nutzer geteilt wird.
+        let url = Url.parse(_request.url, true);
+        for (let key in url.query)
+            _response.write(key + ":" + url.query[key] + "<br/>");
+        _response.end();
     }
 })(L06_SendData || (L06_SendData = {}));
 //# sourceMappingURL=Server.js.map

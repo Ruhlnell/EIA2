@@ -82,7 +82,7 @@ var tanne3;
         document.getElementById(key).appendChild(option);
         let steper = document.createElement("input");
         steper.setAttribute("type", "number");
-        steper.setAttribute("name", " Stepper");
+        steper.setAttribute("name", _products.name);
         steper.setAttribute("step", "1");
         steper.setAttribute("min", "0");
         steper.setAttribute("max", "50");

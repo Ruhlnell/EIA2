@@ -1,6 +1,9 @@
 import * as Http from "http"; //Import eines Modul als HTTP Objekt
 import * as Url from "url";
+
 namespace L06_SendData {
+    console.log("bla");
+    
     console.log("Starting server"); //Consolelog wird ausgegeben mit nachricht "Starting server"
     let port: number = process.env.PORT; //Stellt den PORT als number ein zum Heroku server  
     if (port == undefined) //Falls der Port nicht definiert ist,
@@ -23,26 +26,10 @@ namespace L06_SendData {
         _response.setHeader("content-type", "text/html; charset=utf-8"); //setzt in den HTML header "content-type" und text/html; charset=utf-8
         _response.setHeader("Access-Control-Allow-Origin", "*"); //Access-Control-Allow-Origin wird auch in den Header gesetzt, damit die antwort des Codes mit dem Nutzer geteilt wird.
 
-        let url: string = _request.url;
-        if (url != "/favicon.ico") {
-            let paragraph: string = Url.parse(url).search.substr(1);
-            let childNodeHTML: string = "";
-            for (let i: number = 0; i < paragraph.length; i++) {
-                if (paragraph[i] == "&") {
-                    item.push(childNodeHTML);
-                    childNodeHTML = "<br>";
-                }
-                else {
-                    childNodeHTML += paragraph[i];
-                }
-            }
-            item.push(childNodeHTML);
-
-            for (let i: number = 0; i < item.length; i++) {
-                _response.write(item[i]);
-            }
-            console.log(item);
-        }
+        let url: Url.Url = Url.parse(_request.url, true);
+        for (let key in url.query)
+            _response.write(key + ":" + url.query[key] + "<br/>");
+        
         _response.end();
     }
 }
