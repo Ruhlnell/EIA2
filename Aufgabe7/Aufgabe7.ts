@@ -1,24 +1,25 @@
 /*
-Aufgabe: Aufgabe 6
+Aufgabe: Aufgabe 7
 Name: Nelli Ruhl
 Matrikel: 259314 
-Datum: 25.11.2018
+Datum: 09.12.2018
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 
 
-namespace tanne3 {
+namespace tanne4 {
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("DOMContentLoaded", fillFieldset2);
     document.addEventListener("DOMContentLoaded", changeListener);
-
+    window.addEventListener("load", init2);
+    let address: string = "http://localhost:8100";
+    
+    
     function init(_event: Event): void {
         console.log(assoProduct);
         displayAssoArray(assoProduct);
     };
-    
-    
 
     function displayAssoArray(_assoArray: assoArray): void {
 
@@ -90,7 +91,7 @@ namespace tanne3 {
         document.getElementById(key).appendChild(option);
         let steper: HTMLElement = document.createElement("input");
         steper.setAttribute("type", "number");
-        steper.setAttribute("name",  _products.name);
+        steper.setAttribute("name", _products.name);
         steper.setAttribute("step", "1");
         steper.setAttribute("min", "0");
         steper.setAttribute("max", "50");
@@ -194,4 +195,40 @@ namespace tanne3 {
             document.getElementById("missing").innerHTML = "";
         }
     }
+
+
+    function init2(_event: Event): void {
+        document.getElementById("submit").addEventListener("click", checkCheckout);
+        setupAsyncForm();
+        //setupColorDivs();
+    }
+
+    function setupAsyncForm(): void {
+        let button: Element = document.querySelector("[type=button]");
+     //   button.addEventListener("click", handleClickOnAsync);
+    }
+
+    function handleClickOnAsync(_event: Event): void {
+        let cartos: HTMLElement = document.getElementById("submit");
+        let name: string = (<HTMLInputElement>document.querySelector("#cart")).innerText;
+        sendRequestWithCustomData(name);
+        
+        alert(name);
+    }
+
+    function sendRequestWithCustomData(_name: string): void {
+        let xhr: XMLHttpRequest = new XMLHttpRequest();
+        xhr.open("GET", address + "?name=" + _name, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
+
+    function handleStateChange(_event: ProgressEvent): void {
+        var xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+        }
+    }
+
 }
