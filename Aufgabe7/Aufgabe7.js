@@ -11,9 +11,12 @@ var tanne4;
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("DOMContentLoaded", fillFieldset2);
     document.addEventListener("DOMContentLoaded", changeListener);
+    //  window.addEventListener("DOMContentLoaded", init);
+    let address = "http://localhost:8100";
     function init(_event) {
         console.log(tanne4.assoProduct);
         displayAssoArray(tanne4.assoProduct);
+        setupAsyncForm();
     }
     ;
     function displayAssoArray(_assoArray) {
@@ -174,46 +177,24 @@ var tanne4;
             document.getElementById("missing").innerHTML = "";
         }
     }
-    let address = "https://eia2-ruhlnell.herokuapp.com/";
+    function init2(_event) {
+        document.getElementById("submit").addEventListener("click", checkCheckout);
+        setupAsyncForm();
+        //setupColorDivs();
+    }
     function setupAsyncForm() {
         let button = document.querySelector("[type=button]");
         button.addEventListener("click", handleClickOnAsync);
     }
     function handleClickOnAsync(_event) {
-        let articles = document.getElementsByTagName("input");
-        let show = [];
-        for (let i = 0; i < articles.length; i++) {
-            let article = articles[i];
-            if (article.checked == true) {
-                let attribute = article.name + ": " + article.getAttribute("price") + " Euro";
-                sendRequestWithCustomData(attribute);
-                show.push(attribute);
-            }
-            else {
-                if (Number(article.value) > 0) {
-                    let attribute = article.name + " " + article.value + ": " + (Number(article.getAttribute("price")) * Number(article.value)) + " Euro";
-                    sendRequestWithCustomData(attribute);
-                    show.push(attribute);
-                }
-            }
-        }
-        let adress = document.getElementById("ad");
-        let showAdress = adress.name + ": " + adress.value;
-        sendRequestWithCustomData(showAdress);
-        show.push(showAdress);
-        let placeShow = document.createElement("div");
-        placeShow.innerText = "Send to Server";
-        placeShow.setAttribute("id", "placeShow");
-        for (let i = 0; i < show.length; i++) {
-            let p = document.createElement("p");
-            p.innerText += show[i];
-            placeShow.appendChild(p);
-        }
-        document.getElementById("content").appendChild(placeShow);
+        let cartos = document.getElementById("submit");
+        let name = document.querySelector("#uebersicht").innerText;
+        sendRequestWithCustomData(name);
+        alert(name);
     }
-    function sendRequestWithCustomData(_attribute) {
+    function sendRequestWithCustomData(_name) {
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", address + "?article=" + _attribute, true);
+        xhr.open("GET", address + "?name=" + _name, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }
