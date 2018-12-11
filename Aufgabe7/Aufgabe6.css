@@ -37,7 +37,7 @@ div {
 	background-Color: rgb(240, 240, 200);
 }
 
-button {
+#button {
 	position: absolute;
 	top: 105px;
 	left: 800px;
@@ -65,6 +65,6 @@ label::after {
 
 #submit {
 	position: absolute;
-	top: 165px;
-	left: 800px;
+	top: 126px;
+	left: 740px;
 }
