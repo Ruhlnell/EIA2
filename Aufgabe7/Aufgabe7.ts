@@ -12,7 +12,7 @@ namespace tanne4 {
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("DOMContentLoaded", fillFieldset2);
     document.addEventListener("DOMContentLoaded", changeListener);
-//    let address: string = "http://localhost:8100";
+    let address: string = "https://eia-ws.herokuapp.com/";
 
 
     

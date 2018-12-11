@@ -45,7 +45,7 @@ button {
 }
 
 .text {
-	font-size: 1.2em;
+	font-size: 12px;
 }
 
 #missing {
@@ -62,4 +62,8 @@ button {
 label::after {
 	content: "";
 	display: block;
+}
+
+#submit{
+	
 }
