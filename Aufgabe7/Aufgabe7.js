@@ -11,7 +11,6 @@ var tanne4;
     document.addEventListener("DOMContentLoaded", init);
     document.addEventListener("DOMContentLoaded", fillFieldset2);
     document.addEventListener("DOMContentLoaded", changeListener);
-    //  window.addEventListener("DOMContentLoaded", init);
     let address = "http://localhost:8100";
     function init(_event) {
         console.log(tanne4.assoProduct);
