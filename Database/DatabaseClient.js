@@ -1,16 +1,16 @@
 var DatabaseClient;
 (function (DatabaseClient) {
     window.addEventListener("load", init);
-    let serverAddress = "https://eia-ws.herokuapp.com/";
-    //let serverAddress: string = "https://<your>.herokuapp.com/";    
+    //let serverAddress: string = "http://localhost:8100";
+    let serverAddress = "https://eia2-18.herokuapp.com";
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
-        let searchButton = document.getElementById("search");
+        let findButton = document.getElementById("find");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
+        findButton.addEventListener("click", find);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -25,12 +25,12 @@ var DatabaseClient;
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
-    function search(_event) {
-        let commandSearch = "command=search";
-        console.log("test1");
-        let input = document.getElementById("matrikelnummer");
-        commandSearch += "&Matrikelnummer=" + input.value;
-        sendRequest(commandSearch, handleSearchResponse);
+    function find(_event) {
+        let search = document.getElementById("number");
+        let query = "command=find";
+        query += "&matrikel=" + search.value;
+        console.log(query);
+        sendRequest(query, handleFindResponse);
     }
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
@@ -48,15 +48,6 @@ var DatabaseClient;
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
-        }
-    }
-    function handleSearchResponse(_event) {
-        let xhr = _event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[1];
             output.value = xhr.response;
             let responseAsJson = JSON.parse(xhr.response);
             console.log(responseAsJson);

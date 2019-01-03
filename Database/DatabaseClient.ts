@@ -1,16 +1,16 @@
 namespace DatabaseClient {
     window.addEventListener("load", init);
-    let serverAddress: string = "https://eia-ws.herokuapp.com/";
-    //let serverAddress: string = "https://<your>.herokuapp.com/";    
+    //let serverAddress: string = "http://localhost:8100";
+    let serverAddress: string = "https://eia2-18.herokuapp.com";    
 
     function init(_event: Event): void {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search");
+        let findButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("find");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
+        findButton.addEventListener("click", find);
     }
 
     function insert(_event: Event): void {
@@ -28,14 +28,14 @@ namespace DatabaseClient {
         sendRequest(query, handleFindResponse);
     }
 
-    function search(_event: Event): void {
-        let commandSearch: string = "command=search";
-        console.log("test1");
-        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("matrikelnummer");
-        commandSearch += "&Matrikelnummer=" + input.value;
-        sendRequest(commandSearch, handleSearchResponse);
-    }
-
+    function find(_event: Event): void {
+        let search: HTMLInputElement = <HTMLInputElement>document.getElementById("number");
+        let query: string = "command=find";
+        query += "&matrikel=" + search.value ;
+        console.log(query);
+        sendRequest(query, handleFindResponse);
+        }
+      
     function sendRequest(_query: string, _callback: EventListener): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);
@@ -54,16 +54,6 @@ namespace DatabaseClient {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson: JSON = JSON.parse(xhr.response);
-            console.log(responseAsJson);
-        }
-    }
-    
-       function handleSearchResponse(_event: ProgressEvent): void {
-        let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[1];
             output.value = xhr.response;
             let responseAsJson: JSON = JSON.parse(xhr.response);
             console.log(responseAsJson);
