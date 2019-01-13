@@ -167,7 +167,7 @@ namespace Aufgabe10 {
         }
 
 
-        for (let i: number = 0; i < 3; i++) {
+        for (let i: number = 0; i < 7; i++) {
             let children2: Child2 = child2[i];
             children2.move();
             children2.draw();

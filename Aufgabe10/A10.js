@@ -124,7 +124,7 @@ var Aufgabe10;
             snow.move();
             snow.draw();
         }
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 7; i++) {
             let children2 = child2[i];
             children2.move();
             children2.draw();
