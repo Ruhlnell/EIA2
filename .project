@@ -6,7 +6,7 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>com.palantir.tslint.tslintBuilder</name>
+			<name>org.eclipse.wst.validation.validationbuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -17,7 +17,7 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>com.palantir.tslint.tslintNature</nature>
+		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 		<nature>com.palantir.typescript.typeScriptNature</nature>
 	</natures>
 </projectDescription>

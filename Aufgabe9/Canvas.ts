@@ -201,9 +201,9 @@ namespace L09_Canvas {
 
     function drawTree(_x: number, _y: number): void {
         crc2.beginPath();
-        crc2.moveTo(_x, _y - 40);
-        crc2.lineTo(_x - 10, _y);
-        crc2.lineTo(_x + 10, _y);
+        crc2.moveTo(this.x+5, this.y + 40);
+        crc2.lineTo(this.x- 5, this.y+40);
+        crc2.lineTo(this.x + 10, this.y+20);
         crc2.closePath();
 
         crc2.fillStyle = "#0B6121";

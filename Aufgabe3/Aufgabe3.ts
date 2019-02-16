@@ -1,10 +1,3 @@
-//Aufgabe: 3 
-//Name: Ruhl, Nelli
-//Matrikel: 259408
-//Datum: 11.11.2018
-
-//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
 namespace UNO {
 
     document.addEventListener("DOMContentLoaded", Anzahl);
@@ -37,7 +30,7 @@ namespace UNO {
     let displayhand: card[] = [];
 
     //Popup
-    function Anzahl():  void {
+ /*   function Anzahl():  void {
         var kartenanzahl: string = prompt("Mit wie vielen Karten willst du spielen?");
         let n: number = parseInt(kartenanzahl);
 
@@ -49,7 +42,7 @@ namespace UNO {
 
         let pull: HTMLElement = document.getElementById("deck");
         pull.addEventListener("click", add);
-    }
+    }*/
 
     //random card
     function randomCard(n: number): void {
