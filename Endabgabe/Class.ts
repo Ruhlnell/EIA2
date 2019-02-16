@@ -1,7 +1,7 @@
 namespace EA {
 
 
-    export class baseStats {
+    export class classes {
         x: number;
         y: number;
         color: string;
@@ -9,7 +9,7 @@ namespace EA {
         draw(): void { }
     }
 
-    export class movement extends baseStats {
+    export class movement extends classes {
         dx: number;
         dy: number;
         move(): void {
@@ -53,7 +53,7 @@ crc2.beginPath();
         }
     }
 
-    export class Sun extends baseStats {
+    export class Sun extends classes {
         draw(): void {
             crc2.lineWidth = 3;
             crc2.fillStyle = "#F4FA58";
@@ -65,7 +65,7 @@ crc2.beginPath();
         }
     }
 
-    export class Tree extends baseStats {
+    export class Tree extends classes {
         color2: string;
         draw(): void {
             crc2.fillStyle = "#0B6121";
@@ -85,7 +85,7 @@ crc2.beginPath();
     }
     
     
-    export class Background extends baseStats {
+    export class Background extends classes {
         draw(): void {
             let width: number = crc2.canvas.width;
             let height: number = crc2.canvas.height;
@@ -137,7 +137,7 @@ crc2.beginPath();
         }
     }
 
-    export class snowball extends baseStats {
+    export class snowball extends classes {
 
         timer: number;
         move(): void {
@@ -195,7 +195,7 @@ crc2.beginPath();
             }
         }
 
-        checkIfHitUp(_x: number, _y: number): boolean {
+        hitUp(_x: number, _y: number): boolean {
             crc2.lineWidth = 50;
             crc2.beginPath();
             crc2.moveTo(_x, _y);
@@ -249,25 +249,7 @@ crc2.beginPath();
             }
 
         }
-        drawChildDead(): void {
-            crc2.fillStyle = "#000000";
-            crc2.strokeStyle = "#000000";
-            crc2.lineWidth = 1;
 
-            crc2.beginPath();
-            crc2.moveTo(this.x + 8, this.y + 5);
-            crc2.lineTo(this.x - 10, this.y + 7);
-            crc2.moveTo(this.x + 4, this.y + 6);
-            crc2.lineTo(this.x + 3, this.y + 12);
-            crc2.moveTo(this.x - 6, this.y + 7);
-            crc2.lineTo(this.x - 8, this.y + 14);
-            crc2.moveTo(this.x + 8, this.y + 12);
-            crc2.lineTo(this.x - 10, this.y + 15);
-            crc2.closePath();
-
-            crc2.fill();
-            crc2.stroke();
-        }
 
         drawChildDown(): void {
             crc2.fillStyle = "#000000";
@@ -310,6 +292,26 @@ crc2.beginPath();
             crc2.fill();
             crc2.stroke();
         }
+        
+                drawChildDead(): void {
+            crc2.fillStyle = "#000000";
+            crc2.strokeStyle = "#000000";
+            crc2.lineWidth = 1;
+
+            crc2.beginPath();
+            crc2.moveTo(this.x + 8, this.y + 5);
+            crc2.lineTo(this.x - 10, this.y + 7);
+            crc2.moveTo(this.x + 4, this.y + 6);
+            crc2.lineTo(this.x + 3, this.y + 12);
+            crc2.moveTo(this.x - 6, this.y + 7);
+            crc2.lineTo(this.x - 8, this.y + 14);
+            crc2.moveTo(this.x + 8, this.y + 12);
+            crc2.lineTo(this.x - 10, this.y + 15);
+            crc2.closePath();
+
+            crc2.fill();
+            crc2.stroke();
+        }
 
 
         move(): void {
@@ -333,7 +335,7 @@ crc2.beginPath();
 
         }
 
-        getSpeed(): number {
+        speed(): number {
             if (this.state == "ridedown") {
                 return Math.floor(this.dx * this.dy * -1 * 200);
             }

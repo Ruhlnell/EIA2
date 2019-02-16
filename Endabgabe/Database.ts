@@ -70,7 +70,7 @@ namespace DatabaseClient {
             let helpString: string = "";
             for (let i: number = 0; i < 10; i++) {
                 let place: number = 1 + i;
-                helpString += "<h3>" + place + ". " + dataArray[i].name + " | Score:" + dataArray[i].score + "<br>"; 
+                helpString += "<h3>" + place + ". " + dataArray[i].name + " | Score:" + dataArray[i].score + "<br>";
             }
             output.innerHTML = helpString;
 

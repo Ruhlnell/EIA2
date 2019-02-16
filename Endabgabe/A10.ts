@@ -4,13 +4,13 @@ namespace EA {
     let sun: Sun;
     let bg: Background;
     let bgImg: ImageData;
-    let allObjects: baseStats[] = [];
+    let allObjects: classes[] = [];
     let childrenArray: children[] = [];
     let snowballs: snowball[] = [];
     let score: number = 0;
     let timer: number = 60;
     let helpTimer: number = 25;
-    let snowballReadyCheck: boolean;
+    let snowballCheck: boolean;
 
     function showMainScreen(): void {
         allObjects = [];
@@ -23,14 +23,14 @@ namespace EA {
         document.getElementById("retry").style.display = "none";
         document.getElementById("highscore").style.display = "none";
         document.getElementsByTagName("div")[0].style.display = "initial";
-        document.getElementById("start").addEventListener("click", startGame);
+        document.getElementById("spielen").addEventListener("click", startGame);
         document.getElementById("highscores").addEventListener("click", highscores);
 
 
     }
 
     function startGame(_event: Event): void {
-        snowballReadyCheck = true;
+        snowballCheck = true;
         score = 0;
         allObjects = [];
         childrenArray = [];
@@ -121,8 +121,8 @@ namespace EA {
 
 
     function throwSnowball(_event: MouseEvent): void {
-        if (snowballReadyCheck == true) {
-            snowballReadyCheck = false;
+        if (snowballCheck == true) {
+            snowballCheck = false;
             let x: number = _event.clientX;
             let y: number = _event.clientY;
             let ball: snowball = new snowball();
@@ -199,7 +199,7 @@ namespace EA {
             if (helpTimer == 0) {
                 timer--;
                 helpTimer = 26;
-                snowballReadyCheck = true;
+                snowballCheck = true;
             }
             helpTimer--;
             crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -224,17 +224,17 @@ namespace EA {
                 }
                 else if (snowballs[i].timer == 0) {
                     snowballs[i].draw();
-                    for (let i2: number = 0; i2 < childrenArray.length; i2++) {
-                        if (snowballs[i].checkIfHitDown(childrenArray[i2].x, childrenArray[i2].y) == true && childrenArray[i2].state == "ridedown") {
+                    for (let k: number = 0; k < childrenArray.length; k++) {
+                        if (snowballs[i].checkIfHitDown(childrenArray[k].x, childrenArray[k].y) == true && childrenArray[k].state == "ridedown") {
 
-                            score += childrenArray[i2].getSpeed() * 10;
-                            childrenArray[i2].state = "dead";
+                            score += childrenArray[k].speed() * 10;
+                            childrenArray[k].state = "dead";
                             console.log("hit");
                         }
-                        if (snowballs[i].checkIfHitUp(childrenArray[i2].x, childrenArray[i2].y) == true && childrenArray[i2].state == "pullup") {
+                        if (snowballs[i].hitUp(childrenArray[k].x, childrenArray[k].y) == true && childrenArray[k].state == "pullup") {
 
-                            score += childrenArray[i2].getSpeed() * 10;
-                            childrenArray[i2].state = "dead";
+                            score += childrenArray[k].speed() * 10;
+                            childrenArray[k].state = "dead";
                             console.log("hit");
                         }
                         else {

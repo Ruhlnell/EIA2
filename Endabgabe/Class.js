@@ -1,11 +1,11 @@
 var EA;
 (function (EA) {
-    class baseStats {
+    class classes {
         move() { }
         draw() { }
     }
-    EA.baseStats = baseStats;
-    class movement extends baseStats {
+    EA.classes = classes;
+    class movement extends classes {
         move() {
             this.y += this.dy;
             this.x += this.dx;
@@ -45,7 +45,7 @@ var EA;
         }
     }
     EA.Cloud = Cloud;
-    class Sun extends baseStats {
+    class Sun extends classes {
         draw() {
             EA.crc2.lineWidth = 3;
             EA.crc2.fillStyle = "#F4FA58";
@@ -57,7 +57,7 @@ var EA;
         }
     }
     EA.Sun = Sun;
-    class Tree extends baseStats {
+    class Tree extends classes {
         draw() {
             EA.crc2.fillStyle = "#0B6121";
             EA.crc2.strokeStyle = "#0B6121";
@@ -72,7 +72,7 @@ var EA;
         }
     }
     EA.Tree = Tree;
-    class Background extends baseStats {
+    class Background extends classes {
         draw() {
             let width = EA.crc2.canvas.width;
             let height = EA.crc2.canvas.height;
@@ -120,7 +120,7 @@ var EA;
         }
     }
     EA.Snowflakes = Snowflakes;
-    class snowball extends baseStats {
+    class snowball extends classes {
         move() {
         }
         draw() {
@@ -169,7 +169,7 @@ var EA;
                 return false;
             }
         }
-        checkIfHitUp(_x, _y) {
+        hitUp(_x, _y) {
             EA.crc2.lineWidth = 50;
             EA.crc2.beginPath();
             EA.crc2.moveTo(_x, _y);
@@ -214,23 +214,6 @@ var EA;
                 this.drawChildUp();
             }
         }
-        drawChildDead() {
-            EA.crc2.fillStyle = "#000000";
-            EA.crc2.strokeStyle = "#000000";
-            EA.crc2.lineWidth = 1;
-            EA.crc2.beginPath();
-            EA.crc2.moveTo(this.x + 8, this.y + 5);
-            EA.crc2.lineTo(this.x - 10, this.y + 7);
-            EA.crc2.moveTo(this.x + 4, this.y + 6);
-            EA.crc2.lineTo(this.x + 3, this.y + 12);
-            EA.crc2.moveTo(this.x - 6, this.y + 7);
-            EA.crc2.lineTo(this.x - 8, this.y + 14);
-            EA.crc2.moveTo(this.x + 8, this.y + 12);
-            EA.crc2.lineTo(this.x - 10, this.y + 15);
-            EA.crc2.closePath();
-            EA.crc2.fill();
-            EA.crc2.stroke();
-        }
         drawChildDown() {
             EA.crc2.fillStyle = "#000000";
             EA.crc2.strokeStyle = "#000000";
@@ -267,6 +250,23 @@ var EA;
             EA.crc2.fill();
             EA.crc2.stroke();
         }
+        drawChildDead() {
+            EA.crc2.fillStyle = "#000000";
+            EA.crc2.strokeStyle = "#000000";
+            EA.crc2.lineWidth = 1;
+            EA.crc2.beginPath();
+            EA.crc2.moveTo(this.x + 8, this.y + 5);
+            EA.crc2.lineTo(this.x - 10, this.y + 7);
+            EA.crc2.moveTo(this.x + 4, this.y + 6);
+            EA.crc2.lineTo(this.x + 3, this.y + 12);
+            EA.crc2.moveTo(this.x - 6, this.y + 7);
+            EA.crc2.lineTo(this.x - 8, this.y + 14);
+            EA.crc2.moveTo(this.x + 8, this.y + 12);
+            EA.crc2.lineTo(this.x - 10, this.y + 15);
+            EA.crc2.closePath();
+            EA.crc2.fill();
+            EA.crc2.stroke();
+        }
         move() {
             if (this.state == "ridedown") {
                 if (this.x < 0 || this.y > EA.crc2.canvas.height) {
@@ -285,7 +285,7 @@ var EA;
                 this.y += this.dy;
             }
         }
-        getSpeed() {
+        speed() {
             if (this.state == "ridedown") {
                 return Math.floor(this.dx * this.dy * -1 * 200);
             }
