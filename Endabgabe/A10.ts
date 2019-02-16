@@ -53,7 +53,6 @@ namespace EA {
         sun = new Sun();
         sun.x = Math.random() * crc2.canvas.width;
         sun.y = Math.random() * 50;
-        sun.color = "#fffa00";
         sun.draw();
         for (let i: number = 0; i < 6; i++) {
             crc2.beginPath();
@@ -70,8 +69,6 @@ namespace EA {
                 let tree: Tree = new Tree();
                 tree.x = x;
                 tree.y = y;
-                /*tree.color = "#9c6012";
-                tree.color2 = "#1bb00f";*/
 
                 tree.draw();
             }
@@ -95,8 +92,6 @@ namespace EA {
             cloud.y = Math.random() * 100;
             cloud.dx = (Math.random() * 2) / 20;
             cloud.dy = 0;
-            /*cloud.color = "#1f9fd4";*/
-
             allObjects.push(cloud);
         }
 
@@ -106,7 +101,6 @@ namespace EA {
             snowflake.y = Math.random() * 200;
             snowflake.dy = (Math.random() * 2) / 5;
             snowflake.dx = 0;
-            /*snowflake.color = "#ffffff";*/
 
             allObjects.push(snowflake);
         }
@@ -114,7 +108,7 @@ namespace EA {
         update();
     }
 
-    
+
     function createChild(): void {
         let child: children = new children();
         child.x = crc2.canvas.width;
@@ -125,7 +119,7 @@ namespace EA {
         childrenArray.push(child);
     }
 
-    
+
     function throwSnowball(_event: MouseEvent): void {
         if (snowballReadyCheck == true) {
             snowballReadyCheck = false;
@@ -139,16 +133,16 @@ namespace EA {
         }
     }
 
-    
+
     function handleChange(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         target.setAttribute("value", target.value);
     }
 
-    
+
     let address: string = "https://eia2-18.herokuapp.com";
 
-    
+
     function sendRequestWithCustomData(): void {
         console.log("requestcustom");
         let xhr: XMLHttpRequest = new XMLHttpRequest();
@@ -252,7 +246,7 @@ namespace EA {
             }
 
 
-            document.getElementById("score").innerText = "Time:" + timer.toString() + "s" + " | Snowballs:" + (20 - snowballs.length).toString() + " | Snowball Ready: " + snowballReadyCheck.toString() + " | Score:" + score.toString();
+            document.getElementById("score").innerText = "Time:" + timer.toString() + "s" + " | Snowballs:" + (20 - snowballs.length).toString() + " Score:" + score.toString();
             if (snowballs.length > 19) {
                 console.log(timer);
                 if (snowballs[19].timer == 0) {
