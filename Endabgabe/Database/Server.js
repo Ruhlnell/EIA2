@@ -1,7 +1,7 @@
 /**
- * Simple server managing between client and database
- * @author: Jirka Dell'Oro-Friedl
- */
+* Simple server managing between client and database
+* @author: Jirka Dell'Oro-Friedl
+*/
 "use strict";
 const Http = require("http");
 const Url = require("url");
@@ -25,11 +25,9 @@ function handleRequest(_request, _response) {
         case "insert":
             let student = {
                 name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
-            };
+                score: parseInt(query["score"]) };
             Database.insert(student);
-            respond(_response, "storing data");
+            respond(_response, "Please refresh your window and click on Highscore-List to see how good you are.");
             break;
         case "refresh":
             Database.findAll(findCallback);

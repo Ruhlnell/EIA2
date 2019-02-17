@@ -1,59 +1,66 @@
-// try to connect to database, then activate callback "handleConnect" 
-Mongo.MongoClient.connect(databaseURL, handleConnect);
+ /**
+ * Simple server managing between client and database
+ * @author: Jirka Dell'Oro-Friedl
+ */
 
-// connect-handler receives two standard parameters, an error object and a database object
-function handleConnect(_e: Mongo.MongoError, _db: Mongo.Db): void {
-    if (_e)
-        console.log("Unable to connect to database, error: ", _e);
-    else {
-        console.log("Connected to database!");
-        db = _db.db(databaseName);
-        students = db.collection("scores");
-    }
+import * as Http from "http";
+import * as Url from "url";
+import * as Database from "./Database";
+
+console.log("Server starting");
+
+let port: number = process.env.PORT;
+if (port == undefined)
+    port = 8100;
+
+let server: Http.Server = Http.createServer();
+server.addListener("listening", handleListen);
+server.addListener("request", handleRequest);
+server.listen(port);
+
+
+
+function handleListen(): void {
+    console.log("Listening on port: " + port);
 }
 
-export function insert(_doc: StudentData): void {
-    // try insertion then activate callback "handleInsert"
-    students.insertOne(_doc, handleInsert);
-}
+function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+    console.log("Request received");
 
+    let query: AssocStringString = Url.parse(_request.url, true).query;
+    var command: string = query["command"];
 
-
-// insertion-handler receives an error object as standard parameter
-function handleInsert(_e: Mongo.MongoError): void {
-    console.log("Database insertion returned -> " + _e);
-}
-
-export function search(_callback: Function, _matrikel: string): void {
-    var cursor: Mongo.Cursor = students.find();
-    cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
-        if (_e)
-            _callback("Error" + _e);
+    switch (command) {
+        case "insert":
+            let student: StudentData = {
+                name: query["name"],
+                
+                score: parseInt(query["score"]) };
+            
+            Database.insert(student);
+            respond(_response, "Please refresh your window and click on Highscore-List to see how good you are.");
+            break;
+        case "refresh":
+            Database.findAll(findCallback);
+            break;
        
+        default:
+            respond(_response, "unknown command: " + command);
+            break;
+        
+          
+    }
 
-            
-            
+    // findCallback is an inner function so that _response is in scope
+    function findCallback(json: string): void {
+        respond(_response, json);
     }
 }
 
-
-
-
-// try to fetch all documents from database, then activate callback
-export function findAll(_callback: Function): void {
-    // cursor points to the retreived set of documents in memory
-    var cursor: Mongo.Cursor = students.find();
-    // try to convert to array, then activate callback "prepareAnswer"
-    cursor.toArray(prepareAnswer);
-
-    // toArray-handler receives two standard parameters, an error object and the array
-    // implemented as inner function, so _callback is in scope
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
-        if (_e)
-            _callback("Error" + _e);
-        else
-            // stringify creates a json-string, passed it back to _callback
-            _callback(JSON.stringify(studentArray));
-    }
+function respond(_response: Http.ServerResponse, _text: string): void {
+    //console.log("Preparing response: " + _text);
+    _response.setHeader("Access-Control-Allow-Origin", "*");
+    _response.setHeader("content-type", "text/html; charset=utf-8");
+    _response.write(_text);
+    _response.end();
 }
